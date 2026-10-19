@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Mind | Modern Luxury Mental Health & Wellness</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            onyx: '#0D0D11',
+            onyxCard: '#12121A',
+            onyxBorder: '#222232',
+            lavender: {
+              300: '#E6E6FA',
+              400: '#D8B4F8',
+              500: '#C084FC',
+              600: '#A855F7',
+              glow: 'rgba(216, 180, 248, 0.15)'
+            },
+            gold: {
+              300: '#F3E5AB',
+              400: '#EED270',
+              500: '#D4AF37',
+              600: '#AA820A',
+              glow: 'rgba(212, 175, 55, 0.2)'
+            },
+            platinum: '#E5E9F0',
+            silver: '#C0C0C0'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          },
+          backgroundImage: {
+            'gold-gradient': 'linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA820A 100%)',
+            'lavender-gradient': 'linear-gradient(135deg, #FFFFFF 0%, #E6E6FA 50%, #D8B4F8 100%)',
+            'metallic-border': 'linear-gradient(135deg, rgba(212,175,55,0.4), rgba(216,180,248,0.2), rgba(229,233,240,0.1))',
+            'hero-radial': 'radial-gradient(circle at 50% 20%, rgba(216, 180, 248, 0.12) 0%, rgba(212, 175, 55, 0.05) 35%, rgba(13, 13, 17, 1) 75%)'
+          },
+          boxShadow: {
+            'gold-glow': '0 0 25px rgba(212, 175, 55, 0.25)',
+            'lavender-glow': '0 0 30px rgba(216, 180, 248, 0.2)',
+            'glass-inset': 'inset 0 1px 1px 0 rgba(255, 255, 255, 0.08)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0D0D11;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #222232;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+
+    /* Glassmorphism Classes */
+    .glass-card {
+      background: rgba(18, 18, 26, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(229, 233, 240, 0.08);
+    }
+
+    .glass-card-interactive {
+      background: rgba(18, 18, 26, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(229, 233, 240, 0.08);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card-interactive:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 175, 55, 0.4);
+      box-shadow: 0 12px 30px -10px rgba(216, 180, 248, 0.15), 0 0 20px rgba(212, 175, 55, 0.1);
+    }
+
+    .glass-nav {
+      background: rgba(13, 13, 17, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    }
+
+    /* Gold Text Gradient */
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #FFF0BD 0%, #D4AF37 50%, #997819 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-lavender-gradient {
+      background: linear-gradient(135deg, #FFFFFF 0%, #E6E6FA 60%, #D8B4F8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Breathing Circle Animation */
+    @keyframes pulseBreathing {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(216, 180, 248, 0.2);
+      }
+      50% {
+        transform: scale(1.65);
+        box-shadow: 0 0 50px rgba(212, 175, 55, 0.4), 0 0 80px rgba(216, 180, 248, 0.3);
+      }
+    }
+
+    .animate-breath {
+      animation: pulseBreathing 8s ease-in-out infinite;
+    }
+
+    .paused {
+      animation-play-state: paused !important;
+    }
+  </style>
+</head>
+
+<body class="bg-onyx text-platinum font-sans antialiased selection:bg-gold-500 selection:text-onyx overflow-x-hidden">
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-full bg-onyx flex items-center justify-center border border-gold-500/40 group-hover:border-gold-400 group-hover:shadow-gold-glow transition-all duration-300">
+            <i class="fa-solid fa-sparkles text-gold-400 text-lg group-hover:rotate-12 transition-transform duration-300"></i>
+          </div>
+          <span class="font-serif text-2xl font-bold tracking-wide text-platinum">
+            Aura<span class="text-gold-gradient font-sans font-light">Mind</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+          <a href="#services" class="hover:text-gold-400 transition-colors">Services</a>
+          <a href="#tools" class="hover:text-lavender-400 transition-colors">Self-Care Tools</a>
+          <a href="#practitioners" class="hover:text-gold-400 transition-colors">Practitioners</a>
+          <a href="#faq" class="hover:text-lavender-400 transition-colors">FAQ</a>
+        </div>
+
+        <!-- Right Side CTA & Helpline Quick Badge -->
+        <div class="hidden sm:flex items-center gap-4">
+          <a href="#booking" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-semibold rounded-full group bg-gold-gradient hover:shadow-gold-glow transition-all duration-300">
+            <span class="px-6 py-2.5 transition-all ease-in duration-75 bg-onyx rounded-full group-hover:bg-opacity-0 text-gold-300 group-hover:text-onyx font-medium uppercase tracking-wider">
+              Book Session
+            </span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" class="text-silver hover:text-gold-400 focus:outline-none p-2">
+            <i class="fa-solid fa-bars-staggered text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-gold-500/20 px-6 pt-4 pb-6 space-y-4 text-center">
+      <a href="#services" class="block text-silver hover:text-gold-400 py-2 border-b border-white/5">Services</a>
+      <a href="#tools" class="block text-silver hover:text-lavender-400 py-2 border-b border-white/5">Self-Care Tools</a>
+      <a href="#practitioners" class="block text-silver hover:text-gold-400 py-2 border-b border-white/5">Practitioners</a>
+      <a href="#faq" class="block text-silver hover:text-lavender-400 py-2 border-b border-white/5">FAQ</a>
+      <a href="#booking" class="block w-full text-center py-3 rounded-full bg-gold-gradient text-onyx font-bold text-sm uppercase tracking-wider shadow-gold-glow mt-4">
+        Book Session Now
+      </a>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-hero-radial overflow-hidden">
+    <!-- Ambient Background Glow Spheres -->
+    <div class="absolute top-1/4 left-10 w-96 h-96 bg-lavender-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 bg-gold-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Hero Text Column -->
+        <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/5 backdrop-blur-md">
+            <i class="fa-solid fa-gem text-gold-400 text-xs"></i>
+            <span class="text-xs uppercase tracking-widest text-gold-300 font-semibold">Luxury Concierge Mental Health</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-platinum leading-tight tracking-tight">
+            Reclaim Your <span class="text-lavender-gradient italic">Inner Harmony</span> & Clarity
+          </h1>
+
+          <p class="text-lg text-silver/80 max-w-2xl font-light leading-relaxed">
+            Elevate your wellbeing with bespoke, confidential mental health services designed for discerning individuals seeking emotional resilience, deep healing, and personal evolution.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="#booking" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-gradient text-onyx font-bold text-sm tracking-wider uppercase hover:shadow-gold-glow hover:scale-105 transition-all duration-300 text-center">
+              Book a Consultation
+            </a>
+            <a href="#tools" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card text-platinum hover:text-lavender-300 border border-lavender-400/20 hover:border-lavender-400/50 text-sm font-semibold tracking-wider uppercase transition-all duration-300 text-center">
+              Explore Interactive Tools
+            </a>
+          </div>
+
+          <!-- Trust Indicators -->
+          <div class="pt-8 border-t border-white/5 flex flex-wrap items-center justify-center lg:justify-start gap-8 text-silver/60 text-xs uppercase tracking-widest">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-user-shield text-gold-400"></i>
+              <span>100% Confidential & HIPAA Compliant</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-award text-lavender-400"></i>
+              <span>Board-Certified Clinicians</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Quick Mood Widget Column -->
+        <div class="lg:col-span-5">
+          <div class="glass-card p-6 sm:p-8 rounded-3xl border border-gold-500/20 shadow-2xl relative">
+            <div class="absolute -top-3 right-6 bg-lavender-600/20 border border-lavender-400/30 text-lavender-300 text-[10px] font-bold uppercase px-3 py-1 rounded-full tracking-widest">
+              Live Interactive
+            </div>
+
+            <h3 class="font-serif text-xl font-semibold text-platinum mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-heart-pulse text-gold-400"></i> Quick Mood Check-In
+            </h3>
+            <p class="text-xs text-silver/70 mb-6">How are you feeling in this exact moment? Take a mindful pause.</p>
+
+            <div id="quick-mood-selector" class="grid grid-cols-5 gap-2 mb-6">
+              <button onclick="setQuickMood('Radiant', '✨', this)" class="mood-btn flex flex-col items-center p-3 rounded-2xl border border-white/5 bg-onyx/50 hover:border-gold-400/50 transition-all">
+                <span class="text-2xl mb-1">✨</span>
+                <span class="text-[10px] text-silver">Radiant</span>
+              </button>
+              <button onclick="setQuickMood('Calm', '🌿', this)" class="mood-btn flex flex-col items-center p-3 rounded-2xl border border-white/5 bg-onyx/50 hover:border-gold-400/50 transition-all">
+                <span class="text-2xl mb-1">🌿</span>
+                <span class="text-[10px] text-silver">Calm</span>
+              </button>
+              <button onclick="setQuickMood('Tired', '🌙', this)" class="mood-btn flex flex-col items-center p-3 rounded-2xl border border-white/5 bg-onyx/50 hover:border-gold-400/50 transition-all">
+                <span class="text-2xl mb-1">🌙</span>
+                <span class="text-[10px] text-silver">Tired</span>
+              </button>
+              <button onclick="setQuickMood('Anxious', '🌊', this)" class="mood-btn flex flex-col items-center p-3 rounded-2xl border border-white/5 bg-onyx/50 hover:border-gold-400/50 transition-all">
+                <span class="text-2xl mb-1">🌊</span>
+                <span class="text-[10px] text-silver">Anxious</span>
+              </button>
+              <button onclick="setQuickMood('Overwhelmed', '⛈️', this)" class="mood-btn flex flex-col items-center p-3 rounded-2xl border border-white/5 bg-onyx/50 hover:border-gold-400/50 transition-all">
+                <span class="text-2xl mb-1">⛈️</span>
+                <span class="text-[10px] text-silver">Stressed</span>
+              </button>
+            </div>
+
+            <!-- Instant Feedback Message -->
+            <div id="quick-mood-response" class="hidden p-4 rounded-xl bg-onyxCard border border-lavender-400/20 text-xs leading-relaxed text-silver/90">
+              <!-- Dynamically Populated -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES & SPECIALIZATIONS ==================== -->
+  <section id="services" class="py-24 bg-onyx border-t border-white/5 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs font-semibold tracking-widest text-gold-400 uppercase">Tailored Clinical Excellence</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-platinum">Signature Therapeutic Disciplines</h2>
+        <div class="w-16 h-0.5 bg-gold-gradient mx-auto"></div>
+        <p class="text-silver/70 text-sm sm:text-base font-light">
+          We integrate modern neuroscience with compassionate psychodynamic therapy to build bespoke care plans.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Service 1 -->
+        <div class="glass-card-interactive p-8 rounded-3xl relative group">
+          <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:bg-gold-500 group-hover:text-onyx transition-all duration-300">
+            <i class="fa-solid fa-user-doctor text-2xl text-gold-400 group-hover:text-onyx"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-platinum mb-3">One-on-One Psychotherapy</h3>
+          <p class="text-silver/70 text-sm leading-relaxed mb-6 font-light">
+            Dedicated private sessions focused on self-discovery, emotional healing, personal transformation, and overcoming trauma.
+          </p>
+          <a href="#booking" onclick="preselectService('One-on-One Psychotherapy')" class="inline-flex items-center gap-2 text-xs font-semibold text-gold-400 hover:text-gold-300 uppercase tracking-wider">
+            Schedule Session <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="glass-card-interactive p-8 rounded-3xl relative group">
+          <div class="w-14 h-14 rounded-2xl bg-lavender-500/10 border border-lavender-400/30 flex items-center justify-center mb-6 group-hover:bg-lavender-400 group-hover:text-onyx transition-all duration-300">
+            <i class="fa-solid fa-brain text-2xl text-lavender-400 group-hover:text-onyx"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-platinum mb-3">Cognitive Behavioral Therapy (CBT)</h3>
+          <p class="text-silver/70 text-sm leading-relaxed mb-6 font-light">
+            Structured, goal-oriented therapy designed to rewire unhelpful cognitive patterns, anxiety triggers, and reactive behaviors.
+          </p>
+          <a href="#booking" onclick="preselectService('Cognitive Behavioral Therapy (CBT)')" class="inline-flex items-center gap-2 text-xs font-semibold text-lavender-400 hover:text-lavender-300 uppercase tracking-wider">
+            Schedule Session <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="glass-card-interactive p-8 rounded-3xl relative group">
+          <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:bg-gold-500 group-hover:text-onyx transition-all duration-300">
+            <i class="fa-solid fa-[#4A0E17] fa-spa text-2xl text-gold-400 group-hover:text-onyx"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-platinum mb-3">Mindfulness & Stress Resilience</h3>
+          <p class="text-silver/70 text-sm leading-relaxed mb-6 font-light">
+            High-performance stress regulation, executive burnout prevention, and somatic grounding protocols.
+          </p>
+          <a href="#booking" onclick="preselectService('Mindfulness & Stress Management')" class="inline-flex items-center gap-2 text-xs font-semibold text-gold-400 hover:text-gold-300 uppercase tracking-wider">
+            Schedule Session <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="glass-card-interactive p-8 rounded-3xl relative group">
+          <div class="w-14 h-14 rounded-2xl bg-lavender-500/10 border border-lavender-400/30 flex items-center justify-center mb-6 group-hover:bg-lavender-400 group-hover:text-onyx transition-all duration-300">
+            <i class="fa-solid fa-people-roof text-2xl text-lavender-400 group-hover:text-onyx"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-platinum mb-3">Couples & Family Dynamics</h3>
+          <p class="text-silver/70 text-sm leading-relaxed mb-6 font-light">
+            Restoring deep emotional intimacy, effective communication channels, and boundary architecture within relationships.
+          </p>
+          <a href="#booking" onclick="preselectService('Couples & Family Counseling')" class="inline-flex items-center gap-2 text-xs font-semibold text-lavender-400 hover:text-lavender-300 uppercase tracking-wider">
+            Schedule Session <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="glass-card-interactive p-8 rounded-3xl relative group">
+          <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mb-6 group-hover:bg-gold-500 group-hover:text-onyx transition-all duration-300">
+            <i class="fa-solid fa-prescription-bottle-medical text-2xl text-gold-400 group-hover:text-onyx"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-platinum mb-3">Psychiatric Evaluation</h3>
+          <p class="text-silver/70 text-sm leading-relaxed mb-6 font-light">
+            Comprehensive diagnostic assessments, medical consultations, and conservative psychotropic medication management.
+          </p>
+          <a href="#booking" onclick="preselectService('Psychiatric Evaluation')" class="inline-flex items-center gap-2 text-xs font-semibold text-gold-400 hover:text-gold-300 uppercase tracking-wider">
+            Schedule Session <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="glass-card-interactive p-8 rounded-3xl relative group">
+          <div class="w-14 h-14 rounded-2xl bg-lavender-500/10 border border-lavender-400/30 flex items-center justify-center mb-6 group-hover:bg-lavender-400 group-hover:text-onyx transition-all duration-300">
+            <i class="fa-solid fa-crown text-2xl text-lavender-400 group-hover:text-onyx"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-platinum mb-3">Concierge Executive Wellness</h3>
+          <p class="text-silver/70 text-sm leading-relaxed mb-6 font-light">
+            24/7 priority access, on-demand virtual check-ins, and high-discretion therapeutic advisory for leaders.
+          </p>
+          <a href="#booking" onclick="preselectService('Concierge Executive Wellness')" class="inline-flex items-center gap-2 text-xs font-semibold text-lavender-400 hover:text-lavender-300 uppercase tracking-wider">
+            Schedule Session <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INTERACTIVE SELF-CARE & MENTAL HEALTH TOOLS ==================== -->
+  <section id="tools" class="py-24 bg-onyxCard/50 border-t border-white/5 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs font-semibold tracking-widest text-lavender-400 uppercase">Interactive Wellness Suite</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-platinum">Mindful Self-Care Oasis</h2>
+        <div class="w-16 h-0.5 bg-lavender-gradient mx-auto"></div>
+        <p class="text-silver/70 text-sm sm:text-base font-light">
+          Engage with empirical therapeutic tools designed for immediate emotional regulation and daily self-reflection.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8">
+        
+        <!-- TOOL 1: Guided Breathing Meditation Widget (5 cols) -->
+        <div class="lg:col-span-5 glass-card p-8 rounded-3xl border border-lavender-400/20 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="font-serif text-xl font-bold text-platinum flex items-center gap-2">
+                <i class="fa-solid fa-wind text-lavender-400"></i> Somatic Breathing
+              </h3>
+              <span id="breath-phase" class="text-xs font-semibold px-3 py-1 rounded-full bg-lavender-600/20 text-lavender-300 border border-lavender-400/30">
+                Inhale (4s)
+              </span>
+            </div>
+            <p class="text-xs text-silver/70 mb-8 font-light">
+              Box breathing recalibrates your central nervous system. Follow the visual rhythmic pulse below.
+            </p>
+          </div>
+
+          <!-- Animated Breathing Circle -->
+          <div class="my-10 flex flex-col items-center justify-center relative min-h-[220px]">
+            <div id="breath-circle" class="w-32 h-32 rounded-full bg-gradient-to-br from-lavender-400/20 to-gold-500/20 border-2 border-lavender-400 flex items-center justify-center animate-breath transition-all">
+              <div class="w-20 h-20 rounded-full bg-onyx/80 backdrop-blur-md border border-gold-400/40 flex items-center justify-center text-center">
+                <span id="breath-timer" class="font-serif text-2xl font-bold text-gold-300">4</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="space-y-4">
+            <div class="flex items-center justify-center gap-4">
+              <button id="breath-toggle-btn" onclick="toggleBreathing()" class="px-6 py-2.5 rounded-full bg-lavender-600 text-white font-medium text-xs tracking-wider uppercase hover:bg-lavender-500 transition-all">
+                Pause Exercise
+              </button>
+            </div>
+            <p class="text-[11px] text-center text-silver/50 italic">
+              "Inhale deep peace, exhale lingering tension."
+            </p>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE: Journal & Questionnaire (7 cols) -->
+        <div class="lg:col-span-7 space-y-8">
+          
+          <!-- TOOL 2: Daily Mood & Wellness Journal -->
+          <div class="glass-card p-8 rounded-3xl border border-gold-500/20">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-serif text-xl font-bold text-platinum flex items-center gap-2">
+                <i class="fa-solid fa-book-bookmark text-gold-400"></i> Daily Reflexion Journal
+              </h3>
+              <span class="text-[11px] text-silver/60">Saved locally & encrypted</span>
+            </div>
+
+            <form id="journal-form" onsubmit="saveJournalEntry(event)" class="space-y-4">
+              <textarea id="journal-input" rows="3" placeholder="Write your unfiltered thoughts, gratitude, or intentions for today..." required class="w-full bg-onyx/60 border border-white/10 rounded-2xl p-4 text-sm text-platinum placeholder-silver/40 focus:outline-none focus:border-gold-400/60 transition-all resize-none"></textarea>
+              
+              <div class="flex items-center justify-between">
+                <select id="journal-tag" class="bg-onyx/80 border border-white/10 rounded-xl px-3 py-2 text-xs text-silver focus:outline-none focus:border-gold-400">
+                  <option value="Gratitude">✨ Gratitude</option>
+                  <option value="Reflection">🌿 Self-Reflection</option>
+                  <option value="Release">🌊 Emotional Release</option>
+                </select>
+
+                <button type="submit" class="px-5 py-2 rounded-full bg-gold-gradient text-onyx font-bold text-xs uppercase tracking-wider hover:shadow-gold-glow transition-all">
+                  Save Entry
+                </button>
+              </div>
+            </form>
+
+            <!-- Saved Journal Logs -->
+            <div class="mt-6 pt-6 border-t border-white/5">
+              <h4 class="text-xs font-semibold text-silver/60 uppercase tracking-widest mb-3">Recent Logs</h4>
+              <div id="journal-logs" class="space-y-3 max-h-40 overflow-y-auto pr-2">
+                <p class="text-xs text-silver/40 italic">No entries logged yet. Write your first thought above.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOOL 3: Quick 4-Question Stress Assessment -->
+          <div class="glass-card p-8 rounded-3xl border border-white/10">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-serif text-xl font-bold text-platinum flex items-center gap-2">
+                <i class="fa-solid fa-clipboard-check text-lavender-400"></i> Emotional Equilibrium Quiz
+              </h3>
+              <span class="text-[11px] text-lavender-300 font-mono">4 Quick Questions</span>
+            </div>
+
+            <div id="quiz-container" class="space-y-6">
+              <div class="space-y-3">
+                <p id="quiz-question" class="text-sm text-platinum font-medium">1. Over the last week, how often have you felt overwhelmed by your workload or responsibilities?</p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="quiz-options">
+                  <button onclick="answerQuiz(1)" class="p-2.5 text-xs rounded-xl bg-onyx/60 border border-white/10 hover:border-gold-400 text-silver hover:text-platinum">Rarely</button>
+                  <button onclick="answerQuiz(2)" class="p-2.5 text-xs rounded-xl bg-onyx/60 border border-white/10 hover:border-gold-400 text-silver hover:text-platinum">Sometimes</button>
+                  <button onclick="answerQuiz(3)" class="p-2.5 text-xs rounded-xl bg-onyx/60 border border-white/10 hover:border-gold-400 text-silver hover:text-platinum">Often</button>
+                  <button onclick="answerQuiz(4)" class="p-2.5 text-xs rounded-xl bg-onyx/60 border border-white/10 hover:border-gold-400 text-silver hover:text-platinum">Constantly</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quiz Result View (Hidden by default) -->
+            <div id="quiz-result" class="hidden p-6 rounded-2xl bg-onyx/80 border border-gold-400/30 text-center space-y-4">
+              <div class="w-12 h-12 rounded-full bg-gold-500/20 text-gold-400 border border-gold-400 flex items-center justify-center mx-auto text-xl">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+              <h4 id="quiz-result-title" class="font-serif text-lg font-bold text-platinum">Assessment Complete</h4>
+              <p id="quiz-result-body" class="text-xs text-silver/80 leading-relaxed max-w-md mx-auto"></p>
+              <button onclick="resetQuiz()" class="text-xs text-gold-400 hover:text-gold-300 underline font-semibold">Retake Assessment</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRACTITIONER PROFILES ==================== -->
+  <section id="practitioners" class="py-24 bg-onyx border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs font-semibold tracking-widest text-gold-400 uppercase">World-Class Clinicians</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-platinum">Distinguished Specialists</h2>
+        <div class="w-16 h-0.5 bg-gold-gradient mx-auto"></div>
+        <p class="text-silver/70 text-sm sm:text-base font-light">
+          Our multidisciplinary clinical staff holds doctorates from premier institutions, bringing deep empathy and rigor to every session.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Doctor 1 -->
+        <div class="glass-card rounded-3xl p-6 border border-white/10 text-center group hover:border-gold-400/40 transition-all">
+          <div class="w-28 h-28 mx-auto rounded-full p-1 bg-gold-gradient mb-6">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Dr. Evelyn Vance" class="w-full h-full object-cover rounded-full">
+          </div>
+          <h3 class="font-serif text-xl font-bold text-platinum">Dr. Evelyn Vance, PsyD</h3>
+          <p class="text-xs text-gold-400 font-medium mb-3">Clinical Psychologist & CBT Lead</p>
+          <p class="text-xs text-silver/70 mb-6 font-light leading-relaxed">
+            Former Harvard Clinical Fellow specializing in anxiety management, executive burnout, and cognitive restructuring.
+          </p>
+          <a href="#booking" onclick="selectTherapist('Dr. Evelyn Vance')" class="inline-block w-full py-2.5 rounded-full border border-gold-500/30 text-gold-300 hover:bg-gold-gradient hover:text-onyx font-semibold text-xs tracking-wider uppercase transition-all">
+            Book With Dr. Vance
+          </a>
+        </div>
+
+        <!-- Doctor 2 -->
+        <div class="glass-card rounded-3xl p-6 border border-white/10 text-center group hover:border-lavender-400/40 transition-all">
+          <div class="w-28 h-28 mx-auto rounded-full p-1 bg-lavender-gradient mb-6">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" alt="Dr. Marcus Sterling" class="w-full h-full object-cover rounded-full">
+          </div>
+          <h3 class="font-serif text-xl font-bold text-platinum">Dr. Marcus Sterling, MD</h3>
+          <p class="text-xs text-lavender-400 font-medium mb-3">Consulting Neuropsychiatrist</p>
+          <p class="text-xs text-silver/70 mb-6 font-light leading-relaxed">
+            Johns Hopkins alumnus focusing on holistic psychiatric evaluations, somatic integration, and mood stabilization.
+          </p>
+          <a href="#booking" onclick="selectTherapist('Dr. Marcus Sterling')" class="inline-block w-full py-2.5 rounded-full border border-lavender-400/30 text-lavender-300 hover:bg-lavender-gradient hover:text-onyx font-semibold text-xs tracking-wider uppercase transition-all">
+            Book With Dr. Sterling
+          </a>
+        </div>
+
+        <!-- Doctor 3 -->
+        <div class="glass-card rounded-3xl p-6 border border-white/10 text-center group hover:border-gold-400/40 transition-all">
+          <div class="w-28 h-28 mx-auto rounded-full p-1 bg-gold-gradient mb-6">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Aria Montgomery" class="w-full h-full object-cover rounded-full">
+          </div>
+          <h3 class="font-serif text-xl font-bold text-platinum">Aria Montgomery, LMFT</h3>
+          <p class="text-xs text-gold-400 font-medium mb-3">Relationship & Family Specialist</p>
+          <p class="text-xs text-silver/70 mb-6 font-light leading-relaxed">
+            Specializing in attachment styles, conflict resolution, and high-net-worth family system dynamics.
+          </p>
+          <a href="#booking" onclick="selectTherapist('Aria Montgomery')" class="inline-block w-full py-2.5 rounded-full border border-gold-500/30 text-gold-300 hover:bg-gold-gradient hover:text-onyx font-semibold text-xs tracking-wider uppercase transition-all">
+            Book With Aria M.
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== APPOINTMENT BOOKING SYSTEM ==================== -->
+  <section id="booking" class="py-24 bg-onyxCard relative border-t border-white/5">
+    <!-- Background Accents -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/5 rounded-full blur-[150px] pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center mb-12 space-y-3">
+        <span class="text-xs font-semibold tracking-widest text-gold-400 uppercase">Seamless Concierge Portal</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-platinum">Schedule Your Private Consultation</h2>
+        <div class="w-16 h-0.5 bg-gold-gradient mx-auto"></div>
+      </div>
+
+      <!-- Booking Multi-Step Form Container -->
+      <div class="glass-card p-6 sm:p-10 rounded-3xl border border-gold-500/30 shadow-2xl">
+        
+        <!-- Step Progress Bar -->
+        <div class="flex items-center justify-between mb-10 pb-6 border-b border-white/10 relative">
+          <div class="flex items-center gap-3">
+            <span id="step-num-1" class="w-8 h-8 rounded-full bg-gold-gradient text-onyx font-bold text-xs flex items-center justify-center">1</span>
+            <span class="text-xs font-semibold text-platinum hidden sm:inline">Service</span>
+          </div>
+          <div class="flex-1 h-0.5 bg-white/10 mx-4"></div>
+          <div class="flex items-center gap-3">
+            <span id="step-num-2" class="w-8 h-8 rounded-full bg-onyx border border-white/20 text-silver font-bold text-xs flex items-center justify-center">2</span>
+            <span class="text-xs font-semibold text-silver hidden sm:inline">Date & Time</span>
+          </div>
+          <div class="flex-1 h-0.5 bg-white/10 mx-4"></div>
+          <div class="flex items-center gap-3">
+            <span id="step-num-3" class="w-8 h-8 rounded-full bg-onyx border border-white/20 text-silver font-bold text-xs flex items-center justify-center">3</span>
+            <span class="text-xs font-semibold text-silver hidden sm:inline">Client Details</span>
+          </div>
+        </div>
+
+        <form id="multi-step-form" onsubmit="event.preventDefault();">
+          
+          <!-- STEP 1: Service & Specialist Selection -->
+          <div id="booking-step-1" class="space-y-6">
+            <h3 class="text-lg font-serif font-semibold text-platinum">Select Therapy Type & Practitioner</h3>
+            
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-medium text-silver/80 mb-2">Therapy Specialization</label>
+                <select id="book-service" class="w-full bg-onyx border border-white/10 rounded-2xl p-3.5 text-sm text-platinum focus:border-gold-400 focus:outline-none">
+                  <option value="One-on-One Psychotherapy">One-on-One Psychotherapy (50 mins)</option>
+                  <option value="Cognitive Behavioral Therapy (CBT)">Cognitive Behavioral Therapy (50 mins)</option>
+                  <option value="Mindfulness & Stress Management">Mindfulness & Stress Management (50 mins)</option>
+                  <option value="Couples & Family Counseling">Couples & Family Counseling (75 mins)</option>
+                  <option value="Psychiatric Evaluation">Psychiatric Evaluation (90 mins)</option>
+                  <option value="Concierge Executive Wellness">Concierge Executive Wellness</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-silver/80 mb-2">Preferred Clinician</label>
+                <select id="book-doctor" class="w-full bg-onyx border border-white/10 rounded-2xl p-3.5 text-sm text-platinum focus:border-gold-400 focus:outline-none">
+                  <option value="Dr. Evelyn Vance">Dr. Evelyn Vance (Psychology Lead)</option>
+                  <option value="Dr. Marcus Sterling">Dr. Marcus Sterling (Neuropsychiatry)</option>
+                  <option value="Aria Montgomery">Aria Montgomery (Family Systems)</option>
+                  <option value="First Available Practitioner">First Available Senior Practitioner</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-silver/80 mb-2">Session Format</label>
+                <div class="grid grid-cols-2 gap-4">
+                  <label class="flex items-center gap-3 p-4 rounded-2xl bg-onyx border border-white/10 cursor-pointer hover:border-gold-400/50">
+                    <input type="radio" name="session-mode" value="Virtual HD Telehealth" checked class="accent-gold-500">
+                    <span class="text-xs font-medium text-platinum"><i class="fa-solid fa-video text-gold-400 mr-2"></i> Virtual HD Video</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-4 rounded-2xl bg-onyx border border-white/10 cursor-pointer hover:border-gold-400/50">
+                    <input type="radio" name="session-mode" value="In-Person Sanctuary" class="accent-gold-500">
+                    <span class="text-xs font-medium text-platinum"><i class="fa-solid fa-building text-lavender-400 mr-2"></i> In-Person Suite</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-end pt-4">
+              <button type="button" onclick="goToStep(2)" class="px-8 py-3 rounded-full bg-gold-gradient text-onyx font-bold text-xs uppercase tracking-wider hover:shadow-gold-glow transition-all">
+                Next: Select Time <i class="fa-solid fa-arrow-right ml-2"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: Date & Time Picker -->
+          <div id="booking-step-2" class="hidden space-y-6">
+            <h3 class="text-lg font-serif font-semibold text-platinum">Select Preferred Date & Time Slot</h3>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-medium text-silver/80 mb-2">Choose Date</label>
+                <input type="date" id="book-date" min="2026-10-19" value="2026-10-22" class="w-full bg-onyx border border-white/10 rounded-2xl p-3.5 text-sm text-platinum focus:border-gold-400 focus:outline-none">
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-silver/80 mb-2">Available Time Slots (EST)</label>
+                <div class="grid grid-cols-2 gap-2" id="time-slots-grid">
+                  <button type="button" onclick="selectSlot(this, '09:00 AM')" class="slot-btn p-3 text-xs rounded-xl bg-onyx border border-gold-400/50 text-gold-300 font-medium">09:00 AM</button>
+                  <button type="button" onclick="selectSlot(this, '11:30 AM')" class="slot-btn p-3 text-xs rounded-xl bg-onyx border border-white/10 text-silver hover:border-gold-400/50">11:30 AM</button>
+                  <button type="button" onclick="selectSlot(this, '02:00 PM')" class="slot-btn p-3 text-xs rounded-xl bg-onyx border border-white/10 text-silver hover:border-gold-400/50">02:00 PM</button>
+                  <button type="button" onclick="selectSlot(this, '04:30 PM')" class="slot-btn p-3 text-xs rounded-xl bg-onyx border border-white/10 text-silver hover:border-gold-400/50">04:30 PM</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between pt-4">
+              <button type="button" onclick="goToStep(1)" class="px-6 py-3 rounded-full border border-white/20 text-silver hover:text-platinum text-xs uppercase font-medium">
+                Back
+              </button>
+              <button type="button" onclick="goToStep(3)" class="px-8 py-3 rounded-full bg-gold-gradient text-onyx font-bold text-xs uppercase tracking-wider hover:shadow-gold-glow transition-all">
+                Next: Personal Details <i class="fa-solid fa-arrow-right ml-2"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Client Details Form -->
+          <div id="booking-step-3" class="hidden space-y-6">
+            <h3 class="text-lg font-serif font-semibold text-platinum">Client Identification & Contact</h3>
+
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-medium text-silver/80 mb-2">Full Legal Name *</label>
+                <input type="text" id="client-name" required placeholder="e.g. Victoria Sterling" class="w-full bg-onyx border border-white/10 rounded-2xl p-3.5 text-sm text-platinum focus:border-gold-400 focus:outline-none">
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-silver/80 mb-2">Private Email Address *</label>
+                <input type="email" id="client-email" required placeholder="victoria@domain.com" class="w-full bg-onyx border border-white/10 rounded-2xl p-3.5 text-sm text-platinum focus:border-gold-400 focus:outline-none">
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-silver/80 mb-2">Contact Phone Number *</label>
+                <input type="tel" id="client-phone" required placeholder="+1 (555) 019-2834" class="w-full bg-onyx border border-white/10 rounded-2xl p-3.5 text-sm text-platinum focus:border-gold-400 focus:outline-none">
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-silver/80 mb-2">Confidential Notes / Special Requests</label>
+                <input type="text" id="client-notes" placeholder="Any specific focus areas..." class="w-full bg-onyx border border-white/10 rounded-2xl p-3.5 text-sm text-platinum focus:border-gold-400 focus:outline-none">
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-gold-500/10 border border-gold-500/20 text-xs text-silver/80 flex items-start gap-3">
+              <i class="fa-solid fa-shield-halved text-gold-400 text-base mt-0.5"></i>
+              <span>Your privacy is legally protected under federal HIPAA compliance guidelines. We never share personal records with third parties.</span>
+            </div>
+
+            <div class="flex justify-between pt-4">
+              <button type="button" onclick="goToStep(2)" class="px-6 py-3 rounded-full border border-white/20 text-silver hover:text-platinum text-xs uppercase font-medium">
+                Back
+              </button>
+              <button type="button" onclick="completeBooking()" class="px-8 py-3 rounded-full bg-gold-gradient text-onyx font-bold text-xs uppercase tracking-wider hover:shadow-gold-glow transition-all">
+                Confirm & Lock Booking
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+        <!-- CONFIRMATION SCREEN (Hidden initially) -->
+        <div id="booking-confirmation" class="hidden text-center py-8 space-y-6">
+          <div class="w-20 h-20 rounded-full bg-gold-gradient/20 border-2 border-gold-400 text-gold-400 flex items-center justify-center mx-auto text-3xl shadow-gold-glow">
+            <i class="fa-solid fa-check"></i>
+          </div>
+
+          <h3 class="font-serif text-2xl font-bold text-platinum">Appointment Confirmed</h3>
+          <p class="text-xs text-silver/80 max-w-md mx-auto">
+            Your private consultation has been reserved. A confirmation dossier with encrypted connection details has been sent to your email.
+          </p>
+
+          <div class="max-w-md mx-auto p-6 rounded-2xl bg-onyx border border-gold-500/30 text-left space-y-3 text-xs">
+            <div class="flex justify-between pb-2 border-b border-white/10">
+              <span class="text-silver/60">Reference Code:</span>
+              <span id="conf-ref" class="font-mono text-gold-400 font-bold">#AM-88492</span>
+            </div>
+            <div class="flex justify-between pb-2 border-b border-white/10">
+              <span class="text-silver/60">Service:</span>
+              <span id="conf-service" class="text-platinum font-medium">One-on-One Psychotherapy</span>
+            </div>
+            <div class="flex justify-between pb-2 border-b border-white/10">
+              <span class="text-silver/60">Practitioner:</span>
+              <span id="conf-doctor" class="text-platinum font-medium">Dr. Evelyn Vance</span>
+            </div>
+            <div class="flex justify-between pb-2 border-b border-white/10">
+              <span class="text-silver/60">Date & Time:</span>
+              <span id="conf-datetime" class="text-platinum font-medium">2026-10-22 at 09:00 AM</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-silver/60">Mode:</span>
+              <span id="conf-mode" class="text-lavender-300 font-medium">Virtual HD Video</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <button onclick="downloadICalSim()" class="px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-platinum text-xs font-semibold hover:bg-white/20 transition-all flex items-center gap-2">
+              <i class="fa-solid fa-calendar-plus text-gold-400"></i> Add to Google / iCal
+            </button>
+            <button onclick="resetBookingForm()" class="px-6 py-2.5 rounded-full border border-gold-400/40 text-gold-300 text-xs font-semibold hover:bg-gold-500/10 transition-all">
+              Book Another Session
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS & FAQ ==================== -->
+  <section id="faq" class="py-24 bg-onyx border-t border-white/5">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs font-semibold tracking-widest text-lavender-400 uppercase">Clarity & Confidence</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-platinum">Frequently Answered Questions</h2>
+        <div class="w-16 h-0.5 bg-lavender-gradient mx-auto"></div>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- Accordion Item 1 -->
+        <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+          <button onclick="toggleFAQ(this)" class="w-full px-6 py-5 text-left font-serif text-lg font-semibold text-platinum flex justify-between items-center hover:text-gold-300 transition-colors">
+            <span>How does Aura Mind ensure total confidentiality?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-gold-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-silver/70 leading-relaxed border-t border-white/5 pt-4">
+            All consultations, digital communications, and clinical logs are safeguarded by end-to-end military-grade encryption and strictly adhere to federal HIPAA privacy guidelines. We maintain discrete billing protocols upon request.
+          </div>
+        </div>
+
+        <!-- Accordion Item 2 -->
+        <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+          <button onclick="toggleFAQ(this)" class="w-full px-6 py-5 text-left font-serif text-lg font-semibold text-platinum flex justify-between items-center hover:text-gold-300 transition-colors">
+            <span>Do you accept insurance or provide superbills?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-gold-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-silver/70 leading-relaxed border-t border-white/5 pt-4">
+            Aura Mind operates as an out-of-network boutique provider to ensure uncompromised session lengths and personalized care. We generate itemized monthly superbills which clients submit for direct out-of-network reimbursement.
+          </div>
+        </div>
+
+        <!-- Accordion Item 3 -->
+        <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+          <button onclick="toggleFAQ(this)" class="w-full px-6 py-5 text-left font-serif text-lg font-semibold text-platinum flex justify-between items-center hover:text-gold-300 transition-colors">
+            <span>What is the difference between Virtual Telehealth and In-Person?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-gold-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-silver/70 leading-relaxed border-t border-white/5 pt-4">
+            Our Virtual HD Telehealth portal provides seamless access anywhere worldwide. In-person sessions take place in our private, tranquil sanctuary suites equipped with noise cancellation, aromatherapy, and acoustic isolation.
+          </div>
+        </div>
+
+        <!-- Accordion Item 4 -->
+        <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+          <button onclick="toggleFAQ(this)" class="w-full px-6 py-5 text-left font-serif text-lg font-semibold text-platinum flex justify-between items-center hover:text-gold-300 transition-colors">
+            <span>What if I need immediate crisis support?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-gold-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-sm text-silver/70 leading-relaxed border-t border-white/5 pt-4">
+            While Aura Mind offers scheduled therapy, acute emergency crisis support is available 24/7 via the national 988 Suicide & Crisis Lifeline. Please see our immediate helpline banner in the footer below.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CRISIS HELPLINE & FOOTER ==================== -->
+  <footer class="bg-onyx border-t border-white/10 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Crisis Banner -->
+      <div class="p-6 rounded-3xl bg-red-950/20 border border-red-500/30 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4 text-center md:text-left">
+          <div class="w-12 h-12 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-phone-flip text-xl"></i>
+          </div>
+          <div>
+            <h4 class="font-serif font-bold text-platinum text-base">Immediate Crisis or Emergency Support</h4>
+            <p class="text-xs text-silver/70">If you or someone you know is in immediate danger, help is free and confidential.</p>
+          </div>
+        </div>
+        <a href="tel:988" class="px-6 py-2.5 rounded-full bg-red-500 hover:bg-red-600 text-white font-bold text-xs uppercase tracking-wider shadow-lg shrink-0">
+          Call or Text 988
+        </a>
+      </div>
+
+      <!-- Main Footer Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pt-6">
+        
+        <div class="space-y-4">
+          <a href="#" class="flex items-center gap-2">
+            <span class="font-serif text-2xl font-bold tracking-wide text-platinum">
+              Aura<span class="text-gold-gradient font-sans font-light">Mind</span>
+            </span>
+          </a>
+          <p class="text-xs text-silver/60 leading-relaxed font-light">
+            Premier sanctuary for integrative mental health, cognitive resilience, and holistic psychotherapy.
+          </p>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-bold text-gold-400 uppercase tracking-widest mb-4">Quick Navigation</h5>
+          <ul class="space-y-2 text-xs text-silver/70">
+            <li><a href="#services" class="hover:text-platinum">Therapies</a></li>
+            <li><a href="#tools" class="hover:text-platinum">Self-Care Suite</a></li>
+            <li><a href="#practitioners" class="hover:text-platinum">Clinical Team</a></li>
+            <li><a href="#booking" class="hover:text-platinum">Concierge Booking</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-bold text-gold-400 uppercase tracking-widest mb-4">Legal & Privacy</h5>
+          <ul class="space-y-2 text-xs text-silver/70">
+            <li><a href="#" class="hover:text-platinum">HIPAA Compliance</a></li>
+            <li><a href="#" class="hover:text-platinum">Terms of Practice</a></li>
+            <li><a href="#" class="hover:text-platinum">Privacy Notice</a></li>
+            <li><a href="#" class="hover:text-platinum">Out-of-Network Billing</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-bold text-gold-400 uppercase tracking-widest mb-4">Sanctuary Location</h5>
+          <p class="text-xs text-silver/70 leading-relaxed font-light mb-4">
+            450 Park Avenue, Suite 2200<br>
+            New York, NY 10022
+          </p>
+          <div class="flex items-center gap-3 text-silver/60">
+            <a href="#" class="hover:text-gold-400"><i class="fa-brands fa-instagram text-base"></i></a>
+            <a href="#" class="hover:text-gold-400"><i class="fa-brands fa-linkedin text-base"></i></a>
+            <a href="#" class="hover:text-gold-400"><i class="fa-brands fa-x-twitter text-base"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Disclaimer -->
+      <div class="pt-8 border-t border-white/5 text-center text-[11px] text-silver/40 space-y-2">
+        <p>© 2026 Aura Mind Wellness Concierge LLC. All Rights Reserved.</p>
+        <p>Disclaimer: The information provided on this platform is for educational purposes and does not constitute a formal doctor-patient relationship prior to intake evaluation.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    // --- Mobile Menu Toggle ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // --- Hero Quick Mood Check-In ---
+    function setQuickMood(mood, emoji, element) {
+      document.querySelectorAll('.mood-btn').forEach(btn => {
+        btn.classList.remove('border-gold-400', 'bg-gold-500/20');
+      });
+      element.classList.add('border-gold-400', 'bg-gold-500/20');
+
+      const responseBox = document.getElementById('quick-mood-response');
+      responseBox.classList.remove('hidden');
+
+      let text = "";
+      if (mood === 'Radiant') text = "Wonderful! Channel this radiant vitality into creative expression or sharing warmth with someone today.";
+      else if (mood === 'Calm') text = "Serenity is a superpower. Take three deep breaths to anchor this feeling of inner balance.";
+      else if (mood === 'Tired') text = "Your body is asking for restorative rest. Consider our somatic breathing exercise below to ease your mind.";
+      else if (mood === 'Anxious') text = "Acknowledge your anxiety without judgment. You are safe in this moment. Try our 4-second box breathing tool below.";
+      else text = "When feeling overwhelmed, focus only on the very next small step. We are here to support you whenever you are ready.";
+
+      responseBox.innerHTML = `<span class="font-bold text-gold-300">${emoji} ${mood} state acknowledged:</span> ${text}`;
+    }
+
+    // --- Guided Breathing Exercise Tool ---
+    let breathingInterval;
+    let breathTime = 4;
+    let breathPhase = 'Inhale';
+    let isBreathingRunning = true;
+
+    function startBreathingCycle() {
+      const timerElem = document.getElementById('breath-timer');
+      const phaseElem = document.getElementById('breath-phase');
+
+      breathingInterval = setInterval(() => {
+        breathTime--;
+        if (breathTime <= 0) {
+          if (breathPhase === 'Inhale') {
+            breathPhase = 'Hold';
+            breathTime = 4;
+            phaseElem.innerText = 'Hold (4s)';
+            phaseElem.className = 'text-xs font-semibold px-3 py-1 rounded-full bg-gold-500/20 text-gold-300 border border-gold-400/30';
+          } else if (breathPhase === 'Hold') {
+            breathPhase = 'Exhale';
+            breathTime = 4;
+            phaseElem.innerText = 'Exhale (4s)';
+            phaseElem.className = 'text-xs font-semibold px-3 py-1 rounded-full bg-lavender-600/20 text-lavender-300 border border-lavender-400/30';
+          } else {
+            breathPhase = 'Inhale';
+            breathTime = 4;
+            phaseElem.innerText = 'Inhale (4s)';
+            phaseElem.className = 'text-xs font-semibold px-3 py-1 rounded-full bg-lavender-600/20 text-lavender-300 border border-lavender-400/30';
+          }
+        }
+        timerElem.innerText = breathTime;
+      }, 1000);
+    }
+
+    function toggleBreathing() {
+      const circle = document.getElementById('breath-circle');
+      const btn = document.getElementById('breath-toggle-btn');
+
+      if (isBreathingRunning) {
+        clearInterval(breathingInterval);
+        circle.classList.add('paused');
+        btn.innerText = 'Resume Exercise';
+        btn.classList.replace('bg-lavender-600', 'bg-gold-500');
+        isBreathingRunning = false;
+      } else {
+        circle.classList.remove('paused');
+        startBreathingCycle();
+        btn.innerText = 'Pause Exercise';
+        btn.classList.replace('bg-gold-500', 'bg-lavender-600');
+        isBreathingRunning = true;
+      }
+    }
+
+    // Initialize Breathing on load
+    startBreathingCycle();
+
+    // --- Daily Journal Tracker (Local Storage Log) ---
+    let journalEntries = JSON.parse(localStorage.getItem('aura_mind_journals') || '[]');
+
+    function renderJournalLogs() {
+      const logsContainer = document.getElementById('journal-logs');
+      if (journalEntries.length === 0) {
+        logsContainer.innerHTML = `<p class="text-xs text-silver/40 italic">No entries logged yet. Write your first thought above.</p>`;
+        return;
+      }
+
+      logsContainer.innerHTML = journalEntries.map(entry => `
+        <div class="p-3 rounded-xl bg-onyx/80 border border-white/5 text-xs">
+          <div class="flex justify-between text-silver/50 text-[10px] mb-1">
+            <span class="text-gold-400 font-semibold">${entry.tag}</span>
+            <span>${entry.date}</span>
+          </div>
+          <p class="text-silver/90 font-light">${entry.text}</p>
+        </div>
+      `).join('');
+    }
+
+    function saveJournalEntry(e) {
+      e.preventDefault();
+      const input = document.getElementById('journal-input');
+      const tag = document.getElementById('journal-tag').value;
+
+      if (!input.value.trim()) return;
+
+      const newEntry = {
+        text: input.value.trim(),
+        tag: tag,
+        date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+      };
+
+      journalEntries.unshift(newEntry);
+      localStorage.setItem('aura_mind_journals', JSON.stringify(journalEntries));
+      input.value = '';
+      renderJournalLogs();
+    }
+
+    renderJournalLogs();
+
+    // --- Quick 4-Question Stress Questionnaire ---
+    const quizQuestions = [
+      "Over the last week, how often have you felt overwhelmed by your workload or responsibilities?",
+      "How frequently do you experience difficulty unwinding or falling asleep at night?",
+      "How often do you feel emotionally drained or physically exhausted without clear cause?",
+      "How confident do you feel in your current ability to manage daily stress triggers?"
+    ];
+
+    let currentQuizIndex = 0;
+    let quizScores = [];
+
+    function answerQuiz(score) {
+      quizScores.push(score);
+      currentQuizIndex++;
+
+      if (currentQuizIndex < quizQuestions.length) {
+        document.getElementById('quiz-question').innerText = `${currentQuizIndex + 1}. ${quizQuestions[currentQuizIndex]}`;
+      } else {
+        showQuizResults();
+      }
+    }
+
+    function showQuizResults() {
+      document.getElementById('quiz-container').classList.add('hidden');
+      const resultBox = document.getElementById('quiz-result');
+      resultBox.classList.remove('hidden');
+
+      const avgScore = quizScores.reduce((a, b) => a + b, 0) / quizScores.length;
+      const title = document.getElementById('quiz-result-title');
+      const body = document.getElementById('quiz-result-body');
+
+      if (avgScore <= 1.8) {
+        title.innerText = "Optimal Equilibrium";
+        body.innerText = "Your responses indicate a strong baseline of stress resilience and emotional clarity. Regular mindfulness practice will help maintain this high state of wellbeing.";
+      } else if (avgScore <= 2.8) {
+        title.innerText = "Moderate Stress Indicators";
+        body.innerText = "You are currently experiencing moderate stress levels. Incorporating structured daily breaks, box breathing, and a consultation session could help restore your balance.";
+      } else {
+        title.innerText = "High Sensory & Emotional Strain";
+        body.innerText = "Your score suggests significant emotional exhaustion or tension. We strongly recommend scheduling a consultation with one of our specialists to design a restorative care plan.";
+      }
+    }
+
+    function resetQuiz() {
+      currentQuizIndex = 0;
+      quizScores = [];
+      document.getElementById('quiz-question').innerText = `1. ${quizQuestions[0]}`;
+      document.getElementById('quiz-container').classList.remove('hidden');
+      document.getElementById('quiz-result').classList.add('hidden');
+    }
+
+    // --- Multi-Step Booking System ---
+    let selectedSlotTime = "09:00 AM";
+
+    function selectSlot(btn, timeStr) {
+      document.querySelectorAll('.slot-btn').forEach(b => {
+        b.classList.remove('border-gold-400/50', 'text-gold-300');
+        b.classList.add('border-white/10', 'text-silver');
+      });
+      btn.classList.remove('border-white/10', 'text-silver');
+      btn.classList.add('border-gold-400/50', 'text-gold-300');
+      selectedSlotTime = timeStr;
+    }
+
+    function goToStep(stepNum) {
+      // Hide all steps
+      document.getElementById('booking-step-1').classList.add('hidden');
+      document.getElementById('booking-step-2').classList.add('hidden');
+      document.getElementById('booking-step-3').classList.add('hidden');
+
+      // Show targeted step
+      document.getElementById(`booking-step-${stepNum}`).classList.remove('hidden');
+
+      // Update Step Indicators
+      for (let i = 1; i <= 3; i++) {
+        const numElem = document.getElementById(`step-num-${i}`);
+        if (i === stepNum) {
+          numElem.className = "w-8 h-8 rounded-full bg-gold-gradient text-onyx font-bold text-xs flex items-center justify-center";
+        } else if (i < stepNum) {
+          numElem.className = "w-8 h-8 rounded-full bg-gold-500/20 text-gold-400 border border-gold-400 text-xs flex items-center justify-center";
+        } else {
+          numElem.className = "w-8 h-8 rounded-full bg-onyx border border-white/20 text-silver font-bold text-xs flex items-center justify-center";
+        }
+      }
+    }
+
+    function preselectService(serviceName) {
+      const serviceSelect = document.getElementById('book-service');
+      if (serviceSelect) serviceSelect.value = serviceName;
+    }
+
+    function selectTherapist(docName) {
+      const doctorSelect = document.getElementById('book-doctor');
+      if (doctorSelect) doctorSelect.value = docName;
+    }
+
+    function completeBooking() {
+      const name = document.getElementById('client-name').value;
+      const email = document.getElementById('client-email').value;
+      const phone = document.getElementById('client-phone').value;
+
+      if (!name || !email || !phone) {
+        alert("Please complete all required fields (Name, Email, and Phone).");
+        return;
+      }
+
+      const service = document.getElementById('book-service').value;
+      const doctor = document.getElementById('book-doctor').value;
+      const date = document.getElementById('book-date').value;
+      const mode = document.querySelector('input[name="session-mode"]:checked').value;
+      const refCode = "#AM-" + Math.floor(10000 + Math.random() * 90000);
+
+      document.getElementById('conf-ref').innerText = refCode;
+      document.getElementById('conf-service').innerText = service;
+      document.getElementById('conf-doctor').innerText = doctor;
+      document.getElementById('conf-datetime').innerText = `${date} at ${selectedSlotTime}`;
+      document.getElementById('conf-mode').innerText = mode;
+
+      document.getElementById('multi-step-form').classList.add('hidden');
+      document.getElementById('booking-confirmation').classList.remove('hidden');
+    }
+
+    function resetBookingForm() {
+      document.getElementById('multi-step-form').reset();
+      document.getElementById('booking-confirmation').classList.add('hidden');
+      document.getElementById('multi-step-form').classList.remove('hidden');
+      goToStep(1);
+    }
+
+    function downloadICalSim() {
+      const ref = document.getElementById('conf-ref').innerText;
+      const service = document.getElementById('conf-service').innerText;
+      const date = document.getElementById('conf-datetime').innerText;
+      
+      const content = `BEGIN:VCALENDAR\nVERSION:2.0\nSUMMARY:Aura Mind Consultation (${service})\nDESCRIPTION:Ref: ${ref}. Session with Aura Mind Concierge.\nSTATUS:CONFIRMED\nEND:VCALENDAR`;
+      
+      const blob = new Blob([content], { type: 'text/calendar;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute('download', `AuraMind-Consultation.ics`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // --- FAQ Accordion Toggle ---
+    function toggleFAQ(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('i');
+
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+  </script>
+</body>
+</html>
